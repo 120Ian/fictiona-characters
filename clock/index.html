@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+        <div class="line line4"></div>
+        <div class="line line5"></div>
+        <div class="line line6"></div>
+        <div class="line line7"></div>
+        <div class="line line8"></div>
+        <div class="line line9"></div>
+        <div class="line line10"></div>
+        <div class="line line11"></div>
+        <div class="line line12"></div>
+        <div class="needle  hour"></div>
+        <div class="needle mintue"></div>
+        <div class="needle second"></div>
+        <div class="cent"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    const second = document.querySelector(".second");
+    const mintue = document.querySelector(".mintue");
+    const hour = document.querySelector(".hour");
+
+    setInterval(function () {
+        let time = new Date();
+        let sec = time.getSeconds() * 6;
+        let min = time.getMinutes() * 6;
+        let hr = time.getHours() * 30;
+        second.style.transform = `rotateZ(${sec}deg)`;
+        mintue.style.transform = `rotateZ(${min}deg)`;
+        hour.style.transform = `rotateZ(${hr}deg)`;
+    })
+</script>
+<style>
+    body {
+        background: linear-gradient(135deg, #24ff72, #2195f3);
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .clock {
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        position: relative;
+        box-shadow:
+            3px 3px 5px rgba(94, 104, 121, 0.288)
+    }
+
+    .clock:before {
+        position: absolute;
+        content: '';
+        height: 230px;
+        width: 230px;
+        /* 	background:rgba(255,255,255,0); */
+        opacity: 0.8;
+        border-radius: 50%;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        box-shadow:
+            inset 3px 3px 5px rgba(94, 104, 121, 0.288)
+    }
+
+    .clock:after {
+        position: absolute;
+        content: '';
+        height: 130px;
+        width: 130px;
+        /*   background:rgba(255,255,255,0); */
+        opacity: 0.4;
+        border-radius: 50%;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        box-shadow: 1px 1px 3px rgba(94, 104, 121, 0.288)
+    }
+
+    .cent {
+        height: 15px;
+        width: 15px;
+        background: #3498db;
+        z-index: 15;
+        border-radius: 50%;
+        position: absolute;
+        border: 2px solid #404040
+    }
+
+    .line {
+        position: absolute;
+        width: 2px;
+        height: 7px;
+        background: #404040;
+    }
+
+    .line1 {
+        transform: rotate(30deg) translatey(-100px)
+    }
+
+    .line2 {
+        transform: rotate(60deg) translatey(-100px)
+    }
+
+    .line3 {
+        transform: rotate(90deg) translatey(-100px)
+    }
+
+    .line4 {
+        transform: rotate(120deg) translatey(-100px)
+    }
+
+    .line5 {
+        transform: rotate(150deg) translatey(-100px)
+    }
+
+    .line6 {
+        transform: rotate(180deg) translatey(-100px)
+    }
+
+    .line7 {
+        transform: rotate(210deg) translatey(-100px)
+    }
+
+    .line8 {
+        transform: rotate(240deg) translatey(-100px)
+    }
+
+    .line9 {
+        transform: rotate(270deg) translatey(-100px)
+    }
+
+    .line10 {
+        transform: rotate(300deg) translatey(-100px)
+    }
+
+    .line11 {
+        transform: rotate(330deg) translatey(-100px)
+    }
+
+    .line12 {
+        transform: rotate(360deg) translatey(-100px)
+    }
+
+    .needle {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+    }
+
+    .second {
+        width: 180px;
+        height: 180px;
+        z-index: 6;
+    }
+
+    .mintue {
+        width: 140px;
+        height: 140px;
+        z-index: 5;
+    }
+
+    .hour {
+        width: 110px;
+        height: 110px;
+        z-index: 4;
+    }
+
+    .second:before {
+        content: '';
+        height: 110px;
+        width: 3px;
+        background: #3498db;
+        position: absolute
+    }
+
+    .second:after {
+        position: absolute;
+        content: '';
+        height: 35px;
+        width: 7px;
+        background: #3498db;
+        top: 105px;
+        border-radius: 5px;
+    }
+
+    .mintue:before {
+        content: '';
+        width: 1px;
+        top: -15px;
+        position: absolute;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 60px solid #e95949;
+    }
+
+    .mintue:after {
+        content: '';
+        width: 3px;
+        top: 40px;
+        position: absolute;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+        border-top: 60px solid #e95949;
+    }
+
+    .hour:before {
+        content: '';
+        width: 1px;
+        position: absolute;
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-bottom: 35px solid #303030;
+    }
+
+    .hour:after {
+        position: absolute;
+        content: '';
+        width: 3px;
+        top: 35px;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
+        border-top: 25px solid #303030;
+    }
+</style>
